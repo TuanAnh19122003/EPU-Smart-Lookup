@@ -214,6 +214,7 @@ const styles = StyleSheet.create({
     hintContainer: {
         alignItems: 'center',
         marginTop: verticalScale(20),
+        marginBottom: verticalScale(11),
     },
     hintText: {
         color: colors.muted,

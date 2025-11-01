@@ -16,13 +16,15 @@ const SearchBar = ({ value, onChange }) => {
             <TextInput
                 value={value}
                 onChangeText={onChange}
-                placeholder="Nhập mã sinh viên hoặc số certificate"
+                placeholder="Nhập mã sinh viên hoặc số văn bằng"
                 placeholderTextColor={colors.muted}
                 style={styles.input}
                 returnKeyType="search"
                 accessible
                 accessibilityLabel="Thanh tìm kiếm"
                 underlineColorAndroid="transparent"
+                textAlignVertical="center"
+                includeFontPadding={false}
             />
 
             {value ? (
@@ -67,8 +69,9 @@ const styles = StyleSheet.create({
         fontSize: moderateScale(15),
         color: colors.text,
         flex: 1,
-        paddingVertical: 0,
+        paddingVertical: moderateScale(6),
         paddingHorizontal: moderateScale(4),
+        textAlignVertical: 'center',
     },
     clearBtn: {
         width: moderateScale(34),
