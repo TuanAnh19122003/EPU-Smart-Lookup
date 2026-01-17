@@ -5,12 +5,9 @@ import {
     StyleSheet,
     Image,
     StatusBar,
-    Animated,
-    Dimensions
+    Animated
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
-const { width } = Dimensions.get('window');
 
 const SplashScreen = ({ navigation }) => {
     // Khởi tạo các giá trị Animation
@@ -55,14 +52,18 @@ const SplashScreen = ({ navigation }) => {
                 colors={['#1e3a8a', '#2563eb', '#3b82f6']}
                 style={styles.gradient}
             >
-                {/* Các vòng tròn trang trí tạo chiều sâu (Abstract Background) */}
-                <View style={[styles.circle, { top: -50, right: -50, opacity: 0.1 }]} />
-                <View style={[styles.circle, { bottom: -100, left: -100, opacity: 0.05, width: 300, height: 300 }]} />
+                {/* Vòng tròn trang trí 1 */}
+                <View style={[styles.circle, styles.circleTop]} />
+                {/* Vòng tròn trang trí 2 */}
+                <View style={[styles.circle, styles.circleBottom]} />
 
                 <Animated.View
                     style={[
                         styles.content,
-                        { opacity: fadeAnim, transform: [{ scale: scaleAnim }] }
+                        { 
+                            opacity: fadeAnim, 
+                            transform: [{ scale: scaleAnim }] 
+                        }
                     ]}
                 >
                     <View style={styles.logoShadow}>
@@ -102,10 +103,22 @@ const styles = StyleSheet.create({
     content: { alignItems: 'center' },
     circle: {
         position: 'absolute',
+        backgroundColor: '#fff',
+        borderRadius: 150, // Đảm bảo luôn tròn
+    },
+    circleTop: {
         width: 200,
         height: 200,
-        borderRadius: 100,
-        backgroundColor: '#fff',
+        top: -50,
+        right: -50,
+        opacity: 0.1,
+    },
+    circleBottom: {
+        width: 300,
+        height: 300,
+        bottom: -100,
+        left: -100,
+        opacity: 0.05,
     },
     logoShadow: {
         shadowColor: "#000",
